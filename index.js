@@ -1,7 +1,14 @@
+
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
-  
+  // const resultResturned = fetch()
+  let resultToBeReturned = fetch("https://anapioficeandfire.com/api/books") //fetches the requested data from the API
+  .then((resp) => resp.json()) //rendering the response as plain old JS Oblect (POJO). 
+  .then((data) => renderBooks(data)) // prints the JS object to our console
+  .catch((error) => `ERROR => ${console.error(error.message)}`)
+  return resultToBeReturned;
 }
+ 
 
 function renderBooks(books) {
   const main = document.querySelector('main');
